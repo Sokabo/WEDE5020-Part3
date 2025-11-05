@@ -1,0 +1,1124 @@
+/* Sivu's Pawfect Retreat - Enhanced Creative CSS */
+
+/* Advanced Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background-size: 400% 400% !important;
+    animation: gradientShift 15s ease infinite !important;
+    min-height: 100vh;
+    line-height: 1.6;
+    position: relative;
+}
+
+/* Dynamic background animation */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Floating particles effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(78, 205, 196, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 60%, rgba(69, 183, 209, 0.1) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+    50% { transform: translateY(-20px) rotate(180deg); opacity: 0.6; }
+}
+
+/* Enhanced Layout Structure */
+center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.main-container {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+        0 0 100px rgba(78, 205, 196, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: containerGlow 8s ease-in-out infinite alternate;
+    display: block;
+    margin: 2rem auto;
+    max-width: 1400px;
+}
+
+@keyframes containerGlow {
+    from { box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1) inset, 0 0 100px rgba(78, 205, 196, 0.2); }
+    to { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.2) inset, 0 0 120px rgba(255, 107, 107, 0.3); }
+}
+
+/* ============================================ */
+/* INTERACTIVE MAP STYLES - EXTERNAL CSS */
+/* ============================================ */
+
+.map-container {
+    position: relative;
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.map-display {
+    position: relative;
+    height: 400px;
+    background: linear-gradient(135deg, #a5d6a7 0%, #81c784 50%, #66bb6a 100%);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.map-display:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.map-marker {
+    position: absolute;
+    font-size: 64px;
+    animation: mapBounce 2s infinite;
+    z-index: 10;
+}
+
+@keyframes mapBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.map-info {
+    text-align: center;
+    z-index: 5;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.map-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.map-btn {
+    padding: 10px 20px;
+    background: white;
+    border: 2px solid #4CAF50;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    color: #2d5a2d;
+}
+
+.map-btn:hover {
+    background: #4CAF50;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.4);
+}
+
+.map-btn.active {
+    background: #4CAF50;
+    color: white;
+}
+
+.location-marker {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 107, 107, 0.3);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+.map-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+.location-popup {
+    display: none;
+    position: absolute;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    border: 3px solid #4CAF50;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    z-index: 100;
+    max-width: 300px;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.location-popup.active {
+    display: block;
+}
+
+.close-popup {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-popup:hover {
+    color: #f44336;
+}
+
+/* ============================================ */
+/* END OF MAP STYLES */
+/* ============================================ */
+
+/* Stunning navigation bar */
+.nav-bar {
+    background: linear-gradient(135deg, 
+        rgba(45, 90, 45, 0.95) 0%, 
+        rgba(34, 139, 34, 0.95) 25%,
+        rgba(0, 128, 0, 0.95) 50%,
+        rgba(34, 139, 34, 0.95) 75%,
+        rgba(45, 90, 45, 0.95) 100%) !important;
+    border-radius: 20px;
+    margin: 15px 0;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 10px 30px rgba(45, 90, 45, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+.nav-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: navShine 3s infinite;
+}
+
+@keyframes navShine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Comprehensive Pseudo-classes Implementation */
+.nav-link {
+    text-decoration: none !important;
+    padding: 15px 25px;
+    margin: 0 8px;
+    border-radius: 50px;
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+    transform: perspective(1000px) rotateX(0deg);
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.nav-link:hover::before {
+    left: 100%;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border: 2px solid rgba(144, 238, 144, 0.8);
+    transform: perspective(1000px) rotateX(-10deg) translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link:focus {
+    outline: 3px solid rgba(144, 238, 144, 0.8);
+    outline-offset: 3px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.nav-link:active {
+    transform: perspective(1000px) rotateX(-15deg) translateY(-2px) scale(0.98);
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* Alternating colors for testimonials */
+.testimonial-cell:nth-child(odd) {
+    background: linear-gradient(135deg, rgba(255, 248, 220, 0.9) 0%, rgba(255, 250, 205, 0.9) 100%);
+}
+
+.testimonial-cell:nth-child(even) {
+    background: linear-gradient(135deg, rgba(240, 248, 255, 0.9) 0%, rgba(230, 245, 255, 0.9) 100%);
+}
+
+/* First and last child styling */
+.services-box:first-of-type {
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow: 0 15px 35px rgba(255, 215, 0, 0.2);
+}
+
+.services-box:last-of-type {
+    border-color: rgba(138, 43, 226, 0.6);
+    box-shadow: 0 15px 35px rgba(138, 43, 226, 0.2);
+}
+
+/* Enhanced form pseudo-classes */
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, 
+input[type="number"]:focus, input[type="date"]:focus, select:focus, textarea:focus {
+    border-color: rgba(78, 205, 196, 0.8) !important;
+    box-shadow: 0 0 20px rgba(78, 205, 196, 0.3) !important;
+    outline: none !important;
+    transform: scale(1.02);
+    background: rgba(255, 255, 255, 0.95) !important;
+}
+
+input[type="text"]:hover, input[type="email"]:hover, input[type="tel"]:hover,
+input[type="number"]:hover, input[type="date"]:hover, select:hover, textarea:hover {
+    border-color: rgba(78, 205, 196, 0.5) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+}
+
+input[type="checkbox"]:checked, input[type="radio"]:checked {
+    accent-color: #4ecdc4;
+    transform: scale(1.4);
+}
+
+input[type="checkbox"]:hover, input[type="radio"]:hover {
+    transform: scale(1.4);
+    cursor: pointer;
+}
+
+/* Spectacular horizontal rules */
+.green-line {
+    border: none !important;
+    height: 6px !important;
+    background: linear-gradient(90deg, 
+        transparent 0%,
+        #ff6b6b 15%,
+        #4ecdc4 30%,
+        #45b7d1 50%,
+        #4ecdc4 70%,
+        #ff6b6b 85%,
+        transparent 100%) !important;
+    border-radius: 3px;
+    position: relative;
+    animation: lineGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes lineGlow {
+    from { opacity: 0.7; transform: scaleY(1); }
+    to { opacity: 1; transform: scaleY(1.2); }
+}
+
+/* Mind-blowing main title */
+.main-title {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7) !important;
+    background-size: 400% 400% !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    animation: titleRainbow 4s ease-in-out infinite, titleFloat 6s ease-in-out infinite;
+    text-shadow: none !important;
+    font-weight: 900 !important;
+    position: relative;
+    display: inline-block;
+    transform-style: preserve-3d;
+}
+
+@keyframes titleRainbow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes titleFloat {
+    0%, 100% { transform: translateY(0px) rotateX(0deg); }
+    50% { transform: translateY(-10px) rotateX(5deg); }
+}
+
+/* Revolutionary service boxes */
+.services-box {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(15px) saturate(180%);
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.services-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(78, 205, 196, 0.1), transparent, rgba(255, 107, 107, 0.1), transparent);
+    animation: serviceRotate 8s linear infinite;
+    z-index: -1;
+}
+
+@keyframes serviceRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.services-box:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    border-color: rgba(78, 205, 196, 0.5);
+}
+
+/* Amazing testimonials */
+.testimonials-table {
+    background: rgba(255, 248, 220, 0.2) !important;
+    backdrop-filter: blur(15px);
+    border: 3px solid rgba(255, 165, 0, 0.3) !important;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-cell {
+    background: linear-gradient(135deg, rgba(255, 248, 220, 0.8) 0%, rgba(255, 250, 205, 0.8) 100%);
+    border-radius: 20px !important;
+    margin: 10px;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(255, 165, 0, 0.2);
+}
+
+.testimonial-cell::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 165, 0, 0.2), transparent);
+    transition: left 0.6s;
+}
+
+.testimonial-cell:hover::before {
+    left: 100%;
+}
+
+.testimonial-cell:hover {
+    transform: translateY(-8px) rotateX(5deg);
+    box-shadow: 0 20px 40px rgba(255, 165, 0, 0.3);
+    border-color: rgba(255, 165, 0, 0.6);
+}
+
+/* Incredible star animations */
+.stars {
+    animation: starTwinkle 2s ease-in-out infinite;
+    display: inline-block;
+}
+
+@keyframes starTwinkle {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg); 
+        text-shadow: 0 0 5px rgba(255, 165, 0, 0.5);
+    }
+    25% { 
+        transform: scale(1.2) rotate(5deg); 
+        text-shadow: 0 0 15px rgba(255, 165, 0, 0.8);
+    }
+    50% { 
+        transform: scale(1.1) rotate(-5deg); 
+        text-shadow: 0 0 20px rgba(255, 165, 0, 1);
+    }
+    75% { 
+        transform: scale(1.15) rotate(3deg); 
+        text-shadow: 0 0 10px rgba(255, 165, 0, 0.7);
+    }
+}
+
+/* Spectacular CTA sections */
+.cta-section {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(20px) saturate(150%);
+    border: 3px solid rgba(50, 205, 50, 0.4) !important;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    animation: ctaPulse 4s ease-in-out infinite;
+}
+
+@keyframes ctaPulse {
+    0%, 100% { 
+        box-shadow: 0 10px 30px rgba(50, 205, 50, 0.3); 
+        border-color: rgba(50, 205, 50, 0.4);
+    }
+    50% { 
+        box-shadow: 0 15px 40px rgba(50, 205, 50, 0.5); 
+        border-color: rgba(50, 205, 50, 0.6);
+    }
+}
+
+/* Mind-blowing book button and all submit buttons - UNIFIED DESIGN */
+.book-button, table.book-button {
+    background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 25%, #45b7d1 50%, #4ecdc4 75%, #ff6b6b 100%) !important;
+    background-size: 400% 400%;
+    border-radius: 50px !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: buttonGradient 3s ease infinite;
+    border: 3px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    display: inline-block !important;
+    width: auto !important;
+    min-width: 200px;
+    max-width: 300px;
+    margin: 1rem auto !important;
+}
+
+/* Submit button styling to match exactly */
+input[type="submit"] {
+    background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 25%, #45b7d1 50%, #4ecdc4 75%, #ff6b6b 100%) !important;
+    background-size: 400% 400% !important;
+    border-radius: 50px !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    animation: buttonGradient 3s ease infinite;
+    border: 3px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+    font-size: 18px !important;
+    font-weight: 900 !important;
+    padding: 15px 25px !important;
+    cursor: pointer !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
+    display: inline-block !important;
+    width: auto !important;
+    min-width: 200px;
+    max-width: 300px;
+    text-align: center !important;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+@keyframes buttonGradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Consistent pseudo-element effects */
+.book-button::before, input[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Consistent hover effects */
+.book-button:hover::before, input[type="submit"]:hover::before {
+    left: 100%;
+}
+
+.book-button:hover, input[type="submit"]:hover {
+    transform: translateY(-5px) scale(1.1) rotateX(-10deg) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Link styling inside button */
+.book-button a {
+    text-decoration: none !important;
+    display: block !important;
+    transition: all 0.3s ease !important;
+    font-weight: 900 !important;
+    position: relative;
+    z-index: 2;
+    color: white !important;
+    font-size: 18px !important;
+    padding: 0 !important;
+}
+
+.book-button:hover a, input[type="submit"]:hover {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8) !important;
+    transform: scale(1.05);
+}
+
+/* Enhanced footer */
+.footer-nav {
+    background: linear-gradient(135deg, rgba(45, 90, 45, 0.9) 0%, rgba(26, 61, 26, 0.9) 100%) !important;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-nav::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: footerPulse 6s ease-in-out infinite;
+}
+
+@keyframes footerPulse {
+    0%, 100% { transform: scale(0.8) rotate(0deg); opacity: 0.3; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 0.6; }
+}
+
+/* Enhanced form elements */
+input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="date"], select, textarea {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 2px solid rgba(78, 205, 196, 0.3) !important;
+    border-radius: 15px !important;
+    padding: 12px 15px !important;
+    font-size: 14px !important;
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(5px);
+}
+
+/* Enhanced checkboxes and radio buttons */
+input[type="checkbox"], input[type="radio"] {
+    transform: scale(1.3);
+    margin-right: 8px;
+    accent-color: #4ecdc4;
+}
+
+/* Comprehensive Media Queries for Full Responsiveness */
+
+/* Large Desktop Screens (1440px+) */
+@media screen and (min-width: 1440px) {
+    .main-container {
+        max-width: 1400px;
+        padding: 3rem;
+    }
+    
+    .services-box, .cta-section, .testimonials-table {
+        max-width: 1200px;
+        margin: 2rem auto;
+    }
+    
+    .nav-link {
+        padding: 20px 35px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Standard Desktop (1024px - 1439px) */
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .main-container {
+        width: 90%;
+        padding: 2.5rem;
+    }
+    
+    .nav-link {
+        padding: 18px 28px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Tablet Landscape (768px - 1023px) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .main-container {
+        width: 95%;
+        margin: 1.5rem auto;
+        padding: 1.5rem;
+    }
+    
+    .nav-bar td {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+    
+    .nav-link {
+        padding: 12px 20px;
+        margin: 4px;
+        font-size: 0.95rem;
+        min-width: 120px;
+        text-align: center;
+    }
+    
+    h1, font[size="7"] {
+        font-size: 2.2rem !important;
+        text-align: center;
+    }
+    
+    h2, font[size="6"] {
+        font-size: 1.8rem !important;
+        text-align: center;
+    }
+    
+    .services-box, .cta-section, .testimonials-table {
+        width: 90%;
+        margin: 1.5rem auto;
+        padding: 1.5rem;
+    }
+    
+    .map-display {
+        height: 350px;
+    }
+}
+
+/* Tablet Portrait (481px - 767px) */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .main-container {
+        width: 95%;
+        margin: 1rem auto;
+        padding: 1rem;
+        border-radius: 20px;
+    }
+    
+    .nav-bar td {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 0.5rem;
+    }
+    
+    .nav-link {
+        padding: 10px 18px;
+        margin: 3px 0;
+        font-size: 0.9rem;
+        width: 200px;
+        text-align: center;
+        border-radius: 25px;
+    }
+    
+    h1, font[size="7"] {
+        font-size: 2rem !important;
+        line-height: 1.2;
+        text-align: center;
+        margin: 1rem 0;
+    }
+    
+    h2, font[size="6"] {
+        font-size: 1.6rem !important;
+        line-height: 1.3;
+        text-align: center;
+    }
+    
+    .map-display {
+        height: 300px;
+    }
+    
+    .map-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .map-btn {
+        width: 100%;
+    }
+}
+
+/* Mobile Landscape (376px - 480px) */
+@media screen and (min-width: 376px) and (max-width: 480px) {
+    .main-container {
+        width: 98%;
+        margin: 0.5rem auto;
+        padding: 0.75rem;
+        border-radius: 15px;
+    }
+    
+    .nav-bar td {
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 0.75rem 0.25rem;
+    }
+    
+    .nav-link {
+        padding: 8px 15px;
+        margin: 2px 0;
+        font-size: 0.8rem;
+        width: 180px;
+        border-radius: 20px;
+    }
+    
+    h1, font[size="7"] {
+        font-size: 1.6rem !important;
+        line-height: 1.1;
+        margin: 0.75rem 0;
+    }
+    
+    h2, font[size="6"] {
+        font-size: 1.3rem !important;
+        line-height: 1.2;
+    }
+    
+    font[size="4"] {
+        font-size: 0.95rem !important;
+    }
+    
+    font[size="3"] {
+        font-size: 0.85rem !important;
+    }
+    
+    .services-box, .testimonials-table, .cta-section {
+        width: 98%;
+        margin: 0.75rem auto;
+        padding: 1rem;
+    }
+    
+    .book-button {
+        width: 100%;
+        padding: 12px 0 !important;
+        margin: 1rem 0;
+    }
+    
+    .map-display {
+        height: 250px;
+    }
+    
+    .map-marker {
+        font-size: 48px;
+    }
+    
+    .map-info {
+        padding: 20px;
+    }
+}
+
+/* Mobile Portrait (320px - 375px) */
+@media screen and (max-width: 375px) {
+    .main-container {
+        width: 100% !important;
+        margin: 0.25rem auto !important;
+        padding: 0.5rem !important;
+        border-radius: 10px;
+        overflow-x: hidden !important;
+    }
+    
+    table, table[width="95%"], table[width="90%"], table[width="80%"], table[width="100%"] {
+        width: 100% !important;
+        margin: 0.25rem 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    .nav-bar {
+        width: 100% !important;
+        margin: 0.25rem 0 !important;
+    }
+    
+    .nav-bar td {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.25rem !important;
+        padding: 0.5rem 0.25rem !important;
+        width: 100% !important;
+    }
+    
+    .nav-link {
+        padding: 6px 12px !important;
+        font-size: 0.75rem !important;
+        width: 140px !important;
+        margin: 1px 0 !important;
+        display: block !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+    }
+    
+    h1, font[size="7"] {
+        font-size: 1.4rem !important;
+        line-height: 1.1 !important;
+        margin: 0.5rem 0 !important;
+        text-align: center !important;
+    }
+    
+    h2, font[size="6"] {
+        font-size: 1.2rem !important;
+        text-align: center !important;
+        margin: 0.5rem 0 !important;
+    }
+    
+    h3, font[size="5"] {
+        font-size: 1.05rem !important;
+        text-align: center !important;
+        margin: 0.5rem 0 !important;
+    }
+    
+    font[size="4"] {
+        font-size: 0.9rem !important;
+    }
+    
+    font[size="3"] {
+        font-size: 0.8rem !important;
+    }
+    
+    .services-box, .testimonials-table, .cta-section {
+        width: 100% !important;
+        margin: 0.5rem 0 !important;
+        padding: 0.75rem !important;
+        box-sizing: border-box !important;
+    }
+    
+    form {
+        width: 100% !important;
+        overflow-x: hidden !important;
+    }
+    
+    form table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        table-layout: fixed !important;
+    }
+    
+    form table td {
+        padding: 0.25rem 0 !important;
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    input[type="text"], input[type="email"], input[type="tel"], 
+    input[type="number"], input[type="date"], select, textarea {
+        width: 100% !important;
+        font-size: 16px !important;
+        padding: 10px !important;
+        margin: 0.25rem 0 !important;
+        border-radius: 8px !important;
+        box-sizing: border-box !important;
+        max-width: 100% !important;
+    }
+    
+    textarea {
+        min-height: 80px !important;
+        resize: vertical !important;
+    }
+    
+    .book-button {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: auto !important;
+        padding: 12px 0 !important;
+        margin: 1rem 0 !important;
+        box-sizing: border-box !important;
+    }
+    
+    input[type="submit"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: auto !important;
+        font-size: 0.8rem !important;
+        padding: 12px 16px !important;
+        box-sizing: border-box !important;
+    }
+    
+    /* Map responsive styles */
+    .map-container {
+        width: 100% !important;
+        padding: 10px !important;
+    }
+    
+    .map-display {
+        height: 200px;
+    }
+    
+    .map-marker {
+        font-size: 40px;
+    }
+    
+    .map-info {
+        padding: 15px;
+        font-size: 0.85rem;
+    }
+    
+    .map-info h3 {
+        font-size: 1rem !important;
+    }
+    
+    .map-controls {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .map-btn {
+        width: 100%;
+        padding: 8px 15px;
+        font-size: 0.85rem;
+    }
+    
+    .location-popup {
+        max-width: 90%;
+        left: 5% !important;
+        right: 5% !important;
+        transform: translateY(-50%) !important;
+        top: 50% !important;
+    }
+    
+    hr {
+        width: 100% !important;
+        margin: 1rem 0 !important;
+    }
+    
+    body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+    
+    * {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .main-container {
+        margin: 0.5rem auto;
+        padding: 0.5rem;
+    }
+    
+    h1, font[size="7"] {
+        font-size: 1.5rem !important;
+        margin: 0.25rem 0;
+    }
+    
+    .nav-bar td {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+    
+    .nav-link {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        width: auto;
+        min-width: 80px;
+    }
+    
+    .map-display {
+        height: 180px;
+    }
+}
+
+/* High DPI screens */
+@media screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .main-container, .services-box, .cta-section {
+        border-width: 1px;
+    }
+    
+    .nav-link, .book-button {
+        border-width: 1px;
+    }
+}
+
+/* Additional enhancements for text elements */
+font[color="darkorange"] {
+    background: linear-gradient(45deg, #ff8c00, #ffa500, #ff6b47) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: bold !important;
+    animation: orangeShimmer 2s ease-in-out infinite alternate;
+}
+
+@keyframes orangeShimmer {
+    from { filter: brightness(1); }
+    to { filter: brightness(1.2); }
+}
+
+/* Smooth scrolling and overall polish */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Enhanced shadows and depth */
+table {
+    position: relative;
+}
+
+/* Accessibility improvements */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    outline: 3px solid rgba(78, 205, 196, 0.6);
+    outline-offset: 2px;
+}

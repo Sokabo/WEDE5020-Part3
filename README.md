@@ -42,7 +42,8 @@ Sivu's Pawfect Retreat is a premium pet care website designed to provide pet own
 - `Contact.html` – Contact form and details
 - `Enquiry.html` – Enquiry form
 - `style.css` – CSS file
-- `nigaa.js` – JavaScript file 
+- `nigaa.js` – JavaScript file
+- 
 
 ---
 

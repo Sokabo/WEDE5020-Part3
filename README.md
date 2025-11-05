@@ -133,4 +133,4 @@ Sivu's Pawfect Retreat is a premium pet care website designed to provide pet own
 ![image alt](https://github.com/Sokabo/WEDE5020-Part2/blob/main/Screenshot%202025-09-24%20104524.png?raw=true)
 -**TABLET**
 ![image alt](https://github.com/Sokabo/WEDE5020-Part2/blob/main/Screenshot%202025-09-24%20120836.png?raw=true)
-- **2025-08-10:** Initial project setup and
+

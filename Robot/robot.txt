@@ -1,0 +1,79 @@
+# Robots.txt for Sivu's Pawfect Retreat
+# This file instructs search engine crawlers on which pages to index
+
+# Allow all search engines to crawl the entire site
+User-agent: *
+Allow: /
+
+# Disallow crawling of admin and private areas (if any exist)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /cgi-bin/
+
+# Disallow crawling of form submission pages
+Disallow: /booking-confirmation.html
+Disallow: /enquiry-response.html
+Disallow: /message-sent.html
+
+# Allow crawling of CSS and JavaScript for better rendering
+Allow: /CSS/
+Allow: /JS/
+Allow: /images/
+
+# Sitemap location (update domain name when deployed)
+Sitemap: https://www.pawfectretreat.co.za/sitemap.xml
+Sitemap: https://pawfectretreat.co.za/sitemap.xml
+
+# Crawl delay to prevent server overload (optional)
+Crawl-delay: 1
+
+# Specific instructions for major search engines
+
+# Google Bot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bing Bot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Yahoo Bot
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots and scrapers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Block AI training bots (optional - uncomment if you want to block)
+# User-agent: CCBot
+# Disallow: /
+
+# User-agent: GPTBot
+# Disallow: /
+
+# User-agent: ChatGPT-User
+# Disallow: /
+
+# User-agent: Google-Extended
+# Disallow: /
+
+# Priority pages for indexing
+# These are handled in the sitemap.xml file
+
+# Notes:
+# - This robots.txt allows full access to legitimate search engines
+# - Blocks known bad bots and scrapers
+# - Protects admin areas and form submission pages
+# - Points to sitemap for better indexing
+# - Sets reasonable crawl delays to prevent server overload
